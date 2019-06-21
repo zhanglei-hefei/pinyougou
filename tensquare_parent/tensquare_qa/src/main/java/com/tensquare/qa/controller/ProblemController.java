@@ -104,5 +104,44 @@ public class ProblemController {
 		problemService.deleteById(id);
 		return new Result(true,StatusCode.OK,"删除成功");
 	}
+
+	/**
+	 * 查询最新问题
+	 * @param labelId 标签id
+	 * @param page 页码
+	 * @param size 每页个数
+	 * @return
+	 */
+	@RequestMapping(value = "/newlist/{labelId}/{page}/{size}",method = RequestMethod.GET)
+	private Result newList(@PathVariable String labelId,@PathVariable Integer page,@PathVariable Integer size){
+		Page<Problem> problems = problemService.newList(labelId, page, size);
+		return new Result(true,StatusCode.OK,"操作成功",new PageResult<Problem>(problems.getTotalElements(),problems.getContent()));
+	}
+
+	/**
+	 * 查询最热问题
+	 * @param labelId 标签id
+	 * @param page 页码
+	 * @param size 每页个数
+	 * @return
+	 */
+	@RequestMapping(value = "/hotlist/{labelId}/{page}/{size}",method = RequestMethod.GET)
+	private Result hotList(@PathVariable String labelId,@PathVariable Integer page,@PathVariable Integer size){
+		Page<Problem> problems = problemService.hotList(labelId, page, size);
+		return new Result(true,StatusCode.OK,"操作成功",new PageResult<Problem>(problems.getTotalElements(),problems.getContent()));
+	}
+
+	/**
+	 * 查询等待回答问题
+	 * @param labelId 标签id
+	 * @param page 页码
+	 * @param size 每页个数
+	 * @return
+	 */
+	@RequestMapping(value = "/waitlist/{labelId}/{page}/{size}",method = RequestMethod.GET)
+	private Result waitList(@PathVariable String labelId,@PathVariable Integer page,@PathVariable Integer size){
+		Page<Problem> problems = problemService.waitList(labelId, page, size);
+		return new Result(true,StatusCode.OK,"操作成功",new PageResult<Problem>(problems.getTotalElements(),problems.getContent()));
+	}
 	
 }
