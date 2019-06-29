@@ -4,3 +4,14 @@
 *.iml
 target
 /tensquare_parent/tensquare_recruit/target
+/.metadata/
+/.recommenders/
+/pinyougou-parent/pinyougou-sellergoods-interface/.project
+/pinyougou-parent/pinyougou-sellergoods-interface/.settings
+/pinyougou-parent/pinyougou-sellergoods-interface/.classpath
+*.project
+*
+*.classpath
+/pinyougou-parent/pinyougou-manager-web/*.classpath
+/pinyougou-parent/pinyougou-manager-web/*.project
+/pinyougou-parent/pinyougou-manager-web/*
